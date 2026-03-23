@@ -13,8 +13,9 @@ interface IdeaCardProps {
   language?: string;
 }
 
-const IdeaCard = ({ idea, index }: IdeaCardProps) => {
+const IdeaCard = ({ idea, index, language = "english" }: IdeaCardProps) => {
   const [showExperiment, setShowExperiment] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Card className="border-border/60 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
