@@ -11,7 +11,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleGenerate = async (data: {
+  const handleGenerate = async (formData: {
     level: string;
     field: string;
     interests: string;
@@ -22,7 +22,7 @@ const Index = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke("generate-ideas", {
-        body: data as Record<string, string>,
+        body: formData,
       });
 
       if (error) throw error;
