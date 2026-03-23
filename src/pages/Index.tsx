@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Beaker } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import ResearchForm from "@/components/ResearchForm";
 import IdeaCard from "@/components/IdeaCard";
-import { generateMockIdeas, type ResearchIdea } from "@/lib/mockData";
+import type { ResearchIdea } from "@/lib/mockData";
 
 const Index = () => {
   const [ideas, setIdeas] = useState<ResearchIdea[]>([]);
