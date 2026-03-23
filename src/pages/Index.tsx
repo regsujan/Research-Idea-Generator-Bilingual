@@ -36,6 +36,7 @@ const STEPS = [
 const Index = () => {
   const [ideas, setIdeas] = useState<ResearchIdea[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState("english");
   const { toast } = useToast();
 
   const handleGenerate = async (formData: {
@@ -43,9 +44,11 @@ const Index = () => {
     field: string;
     interests: string;
     recentPapers: string;
+    language?: string;
   }) => {
     setIsLoading(true);
     setIdeas([]);
+    setCurrentLanguage(formData.language || "english");
 
     try {
       const { data, error } = await supabase.functions.invoke("generate-ideas", {
@@ -219,7 +222,7 @@ const Index = () => {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {ideas.map((idea, i) => (
-                <IdeaCard key={i} idea={idea} index={i} />
+                <IdeaCard key={i} idea={idea} index={i} language={currentLanguage} />
               ))}
             </div>
           </section>

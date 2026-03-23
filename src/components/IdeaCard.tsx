@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp, FlaskConical, Lightbulb, Target } from "lucide-react";
+import { ChevronDown, ChevronUp, FlaskConical, Lightbulb, Target, ArrowRight } from "lucide-react";
 import type { ResearchIdea } from "@/lib/mockData";
 
 interface IdeaCardProps {
   idea: ResearchIdea;
   index: number;
+  language?: string;
 }
 
-const IdeaCard = ({ idea, index }: IdeaCardProps) => {
+const IdeaCard = ({ idea, index, language = "english" }: IdeaCardProps) => {
   const [showExperiment, setShowExperiment] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Card className="border-border/60 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
@@ -106,6 +109,15 @@ const IdeaCard = ({ idea, index }: IdeaCardProps) => {
             </div>
           )}
         </div>
+
+        {/* Explore Button */}
+        <Button
+          className="w-full gap-2 mt-2"
+          onClick={() => navigate("/explore", { state: { idea, language } })}
+        >
+          Explore This Idea
+          <ArrowRight className="h-4 w-4" />
+        </Button>
       </CardContent>
     </Card>
   );
