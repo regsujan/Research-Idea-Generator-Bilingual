@@ -222,7 +222,7 @@ const Index = () => {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {ideas.map((idea, i) => (
-                <IdeaCard key={i} idea={idea} index={i} />
+                <IdeaCard key={i} idea={idea} index={i} language={currentLanguage} />
               ))}
             </div>
           </section>
