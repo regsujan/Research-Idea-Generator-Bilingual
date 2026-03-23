@@ -108,6 +108,15 @@ const IdeaCard = ({ idea, index }: IdeaCardProps) => {
             </div>
           )}
         </div>
+
+        {/* Explore Button */}
+        <Button
+          className="w-full gap-2 mt-2"
+          onClick={() => navigate("/explore", { state: { idea, language } })}
+        >
+          Explore This Idea
+          <ArrowRight className="h-4 w-4" />
+        </Button>
       </CardContent>
     </Card>
   );
