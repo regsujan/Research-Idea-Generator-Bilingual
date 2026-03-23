@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp, FlaskConical, Lightbulb, Target } from "lucide-react";
+import { ChevronDown, ChevronUp, FlaskConical, Lightbulb, Target, ArrowRight } from "lucide-react";
 import type { ResearchIdea } from "@/lib/mockData";
 
 interface IdeaCardProps {
