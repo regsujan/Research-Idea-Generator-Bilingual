@@ -30,6 +30,9 @@ serve(async (req) => {
 Their specific interests are: ${interests || "general topics in the field"}.
 ${recentPapers ? `They have recently read these papers: ${recentPapers}` : ""}
 
+Output language: ${outputLanguage}
+${languageInstruction}
+
 Return a JSON array of exactly 5 objects with this exact structure:
 [
   {

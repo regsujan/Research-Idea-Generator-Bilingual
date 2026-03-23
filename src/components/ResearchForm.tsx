@@ -50,7 +50,7 @@ const ResearchForm = ({ onSubmit, isLoading }: ResearchFormProps) => {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-3">
             <div className="space-y-2">
               <Label htmlFor="level" className="flex items-center gap-1.5 font-sans text-sm font-medium">
                 <GraduationCap className="h-4 w-4 text-muted-foreground" />
@@ -78,10 +78,29 @@ const ResearchForm = ({ onSubmit, isLoading }: ResearchFormProps) => {
               </Label>
               <Input
                 id="field"
-                placeholder="e.g., Computer Science, Biology"
+                placeholder="e.g., Computer Science"
                 value={formData.field}
                 onChange={(e) => setFormData((p) => ({ ...p, field: e.target.value }))}
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="language" className="flex items-center gap-1.5 font-sans text-sm font-medium">
+                <Languages className="h-4 w-4 text-muted-foreground" />
+                Output Language
+              </Label>
+              <Select
+                value={formData.language}
+                onValueChange={(v) => setFormData((p) => ({ ...p, language: v }))}
+              >
+                <SelectTrigger id="language">
+                  <SelectValue placeholder="Select language" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="english">English</SelectItem>
+                  <SelectItem value="nepali">नेपाली (Nepali)</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
