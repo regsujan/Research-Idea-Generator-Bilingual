@@ -10,6 +10,7 @@ import type { ResearchIdea } from "@/lib/mockData";
 interface IdeaCardProps {
   idea: ResearchIdea;
   index: number;
+  language?: string;
 }
 
 const IdeaCard = ({ idea, index }: IdeaCardProps) => {
