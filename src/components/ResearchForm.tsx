@@ -18,6 +18,7 @@ interface FormData {
   field: string;
   interests: string;
   recentPapers: string;
+  language: string;
 }
 
 interface ResearchFormProps {
