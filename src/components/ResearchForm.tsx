@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Sparkles, Loader2, GraduationCap, BookOpen, Microscope, FileText } from "lucide-react";
+import { Sparkles, Loader2, GraduationCap, BookOpen, Microscope, FileText, Languages } from "lucide-react";
 
 interface FormData {
   level: string;
