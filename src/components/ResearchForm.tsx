@@ -32,6 +32,7 @@ const ResearchForm = ({ onSubmit, isLoading }: ResearchFormProps) => {
     field: "",
     interests: "",
     recentPapers: "",
+    language: "english",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
