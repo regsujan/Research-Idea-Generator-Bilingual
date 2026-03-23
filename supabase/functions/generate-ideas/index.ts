@@ -12,7 +12,12 @@ serve(async (req) => {
   }
 
   try {
-    const { level, field, interests, recentPapers } = await req.json();
+    const { level, field, interests, recentPapers, language } = await req.json();
+
+    const outputLanguage = language === "nepali" ? "Nepali (Devanagari script)" : "English";
+    const languageInstruction = language === "nepali"
+      ? "IMPORTANT: Write ALL text content (titles, descriptions, methodology, experiment steps, control/variable groups) entirely in Nepali using Devanagari script. Do NOT use English for any content fields."
+      : "";
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
@@ -24,6 +29,9 @@ serve(async (req) => {
     const userPrompt = `Generate exactly 5 research thesis ideas for a ${level} student studying ${field}.
 Their specific interests are: ${interests || "general topics in the field"}.
 ${recentPapers ? `They have recently read these papers: ${recentPapers}` : ""}
+
+Output language: ${outputLanguage}
+${languageInstruction}
 
 Return a JSON array of exactly 5 objects with this exact structure:
 [
