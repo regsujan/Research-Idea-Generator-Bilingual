@@ -21,23 +21,17 @@ const Index = () => {
     setIdeas([]);
 
     try {
-      // ────────────────────────────────────────────────────────────────
-      // TODO: Replace the mock call below with your GoogleGenerativeAI
-      // SDK call. For example:
-      //
-      // import { GoogleGenerativeAI } from "@google/generative-ai";
-      // const genAI = new GoogleGenerativeAI(YOUR_API_KEY);
-      // const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-      // const prompt = buildPrompt(data);
-      // const result = await model.generateContent(prompt);
-      // const parsed: ResearchIdea[] = JSON.parse(result.response.text());
-      // setIdeas(parsed);
-      //
-      // ────────────────────────────────────────────────────────────────
+      const { data, error } = await supabase.functions.invoke("generate-ideas", {
+        body: data as Record<string, string>,
+      });
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      const mockIdeas = generateMockIdeas(data.field || "Science", data.interests || "emerging technologies");
-      setIdeas(mockIdeas);
+      if (error) throw error;
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+
+      setIdeas(data.ideas);
     } catch (error) {
       console.error("Generation failed:", error);
       toast({
