@@ -82,7 +82,7 @@ const Index = () => {
           </div>
           <div>
             <h1 className="text-lg font-bold leading-tight">
-              Research Idea Generator
+              ThesisSathi
             </h1>
             <p className="text-xs text-muted-foreground">
               Discover compelling thesis topics tailored to your expertise
