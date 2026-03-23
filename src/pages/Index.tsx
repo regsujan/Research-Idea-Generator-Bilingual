@@ -82,7 +82,7 @@ const Index = () => {
           </div>
           <div>
             <h1 className="text-lg font-bold leading-tight">
-              Research Idea Generator
+              ThesisSathi
             </h1>
             <p className="text-xs text-muted-foreground">
               Discover compelling thesis topics tailored to your expertise
@@ -232,7 +232,7 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <Beaker className="h-4 w-4 text-primary" />
             <span className="text-sm font-semibold">
-              Research Idea Generator
+              ThesisSathi
             </span>
           </div>
           <p className="text-xs text-muted-foreground">
